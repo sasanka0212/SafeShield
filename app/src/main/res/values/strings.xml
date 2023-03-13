@@ -2,5 +2,6 @@
     <string name="app_name">SafeShield</string>
     <string name="edtName">Enter Username</string>
     <string name="edtPassword">Enter Password</string>
-    <string name="btnLogin">Log in</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnSignup">Create Account</string>
 </resources>
