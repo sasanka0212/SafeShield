@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/bottom_emergencysos"
+        android:title="SOS"
+        android:icon="@drawable/ic_baseline_announcement_24"/>
+    <item
+        android:id="@+id/bottom_sms"
+        android:title="SMS"
+        android:icon="@drawable/ic_baseline_sms_24"/>
+    <item
+        android:id="@+id/bottom_hospital"
+        android:title="Hospital"
+        android:icon="@drawable/ic_baseline_local_hospital_24"/>
+    <item
+        android:id="@+id/bottom_contactus"
+        android:title="Contact us"
+        android:icon="@drawable/ic_baseline_contact_mail_24"/>
+    <item
+        android:id="@+id/bottom_user"
+        android:title="Account"
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+
 </menu>

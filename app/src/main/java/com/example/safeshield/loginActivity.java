@@ -49,6 +49,6 @@ public class loginActivity extends AppCompatActivity {
                 startActivity(iNext);
             }
         });
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
     }
 }

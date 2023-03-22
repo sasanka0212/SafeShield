@@ -41,7 +41,8 @@
             android:layout_marginTop="7dp"
             android:text="No Account? Create New Account"
             android:id="@+id/txtgotoSignup"
-            android:textSize="20sp"/>
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
         <Button
             android:layout_width="wrap_content"
