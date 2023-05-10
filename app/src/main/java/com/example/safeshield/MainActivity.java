@@ -1,5 +1,6 @@
 package com.example.safeshield;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -26,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        toolbar.setTitle("SafeShield");
+        getSupportActionBar().setTitle("SafeShield");
 
         bottomNavigation.setSelectedItemId(R.id.bottom_emergencysos);
+        setFragment(new EmegencySOSFragment(), 0);
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 int itemId = menuItem.getItemId();
                 switch(itemId){
                     case R.id.bottom_emergencysos:
-                        setFragment(new EmegencySOSFragment(), 0);
+                        setFragment(new EmegencySOSFragment(), 1);
                         break;
                     case R.id.bottom_sms:
                         setFragment(new SmsFragment(), 1);
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         }
         else if(itemId==R.id.tool_appinfo){
-            Toast.makeText(this, "App Info", Toast.LENGTH_SHORT).show();
+            Intent appInfo = new Intent(this, AppInfoActivity.class);
+            startActivity(appInfo);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -92,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if(bottomNavigation.getSelectedItemId()!=R.id.bottom_emergencysos){
             bottomNavigation.setSelectedItemId(R.id.bottom_emergencysos);
+            setFragment(new EmegencySOSFragment(), 1);
         }
         else {
             super.onBackPressed();

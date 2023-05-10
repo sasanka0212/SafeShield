@@ -4,16 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ContactusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact Us"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/head_blue"
         android:textStyle="bold"
-        android:textSize="25sp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="14"
+            android:hint="Your email id"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/contactEdtEmail"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="14"
+            android:hint="Give a feedback"
+            android:inputType="text"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/contactEdtFeedback"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Write your problems"
+            android:inputType="text|textMultiLine"
+            android:ems="14"
+            android:textSize="18sp"
+            android:layout_marginBottom="5sp"
+            android:id="@+id/contactEdtProblem"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:backgroundTint="@color/head_blue"
+            android:id="@+id/contactBtnSend"/>
+
+    </LinearLayout>
 
 </LinearLayout>

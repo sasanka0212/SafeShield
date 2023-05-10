@@ -1,6 +1,7 @@
 package com.example.safeshield;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,16 +25,23 @@ public class loginActivity extends AppCompatActivity {
         txtError = findViewById(R.id.txtError);
         txtgotoSignup = findViewById(R.id.txtgotoSignup);
 
+        //direct entry to MainActivity class
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = edtName.getText().toString();
                 String pass = edtPassword.getText().toString();
                 DB = new DBHelper(loginActivity.this);
+                SharedPreferences pref;
                 if(DB.checkusernamepassword(name,pass)) {
                     Toast.makeText(loginActivity.this, "Welcome back!", Toast.LENGTH_SHORT).show();
-                    Intent intentMain = new Intent(loginActivity.this, MainActivity.class);
-                    startActivity(intentMain);
+                    pref = getSharedPreferences("login", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putBoolean("flag", true);
+                    editor.apply();
+                    Intent intentDirection = new Intent(loginActivity.this, DirectionActivity.class);
+                    startActivity(intentDirection);
                     finish();
                 }
                 else{

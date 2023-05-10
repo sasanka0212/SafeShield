@@ -3,16 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.184" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/drawable/ic_baseline_local_hospital_24.xml" value="0.184" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_contactlist.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_login.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_main.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_sosadapder.xml" value="0.197008547008547" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/add_contact.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/contact_list.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_account.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/SASANKA KUNDU/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_emegency_s_o_s.xml" value="0.6" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/drawable/ic_launcher_background.xml" value="0.223" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.223" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/drawable/user.xml" value="0.201" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout-land/fragment_emegency_s_o_s.xml" value="0.38372093023255816" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout-land/fragment_home.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_app_info.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_contactlist.xml" value="0.2" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_direction.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_login.xml" value="0.1834117144078666" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_signup.xml" value="0.2234375" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/activity_splash.xml" value="0.2234375" />
-        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_account.xml" value="0.2234375" />
-        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_contactus.xml" value="0.2234375" />
-        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_emegency_s_o_s.xml" value="0.2234375" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/add_contact.xml" value="0.18247863247863247" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/contact_list.xml" value="0.18247863247863247" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_account.xml" value="0.2" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_contactus.xml" value="0.2" />
+        <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_emegency_s_o_s.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_hospital.xml" value="0.2234375" />
         <entry key="..\:/Users/sasan/AndroidStudioProjects/SafeShield/app/src/main/res/layout/fragment_location.xml" value="0.2234375" />

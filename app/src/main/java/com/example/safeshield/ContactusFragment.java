@@ -1,10 +1,16 @@
 package com.example.safeshield;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -12,6 +18,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ContactusFragment extends Fragment {
+
+    //views to be used
+    EditText contactEdtEmail, contactEdtProblem, contactEdtFeedback;
+    Button contactBtnSend;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +57,7 @@ public class ContactusFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // use only if any parameters are needed...
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,5 +69,34 @@ public class ContactusFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_contactus, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        contactEdtEmail = view.findViewById(R.id.contactEdtEmail);
+        contactEdtProblem = view.findViewById(R.id.contactEdtProblem);
+        contactEdtFeedback = view.findViewById(R.id.contactEdtFeedback);
+        contactBtnSend = view.findViewById(R.id.contactBtnSend);
+
+        contactBtnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = contactEdtEmail.getText().toString();
+                String problem = contactEdtProblem.getText().toString();
+                String feedback = contactEdtFeedback.getText().toString();
+                if(email.equals("") && problem.equals("") && feedback.equals("")){
+                    Toast.makeText(getActivity(), "Fill up all details first", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent sendMail = new Intent(Intent.ACTION_SEND);
+                    sendMail.setType("message/rfc822");
+                    sendMail.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                    sendMail.putExtra(Intent.EXTRA_SUBJECT, feedback);
+                    sendMail.putExtra(Intent.EXTRA_TEXT, problem);
+                    startActivity(Intent.createChooser(sendMail, "Mail via"));
+                }
+            }
+        });
     }
 }

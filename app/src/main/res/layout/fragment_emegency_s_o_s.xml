@@ -5,5 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".EmegencySOSFragment">
+
+    <Button
+        android:id="@+id/callContact"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Call to saved contacts"
+        android:backgroundTint="@color/teal_200"
+        android:layout_marginBottom="30dp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/callSos"
+        android:text="Call to SOS contacts"
+        android:backgroundTint="@color/teal_200"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

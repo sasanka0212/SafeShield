@@ -33,9 +33,9 @@ public class SignupActivity extends AppCompatActivity {
                 String userSignup = edtUserSignup.getText().toString();
                 String passSignup = edtPassSignup.getText().toString();
                 DBHelper DB = new DBHelper(SignupActivity.this);
-                if(DB.insertData(nameSignup, phoneSignup, userSignup, passSignup)){
+                if(DB.insertUser(nameSignup, phoneSignup, userSignup, passSignup)){
                     Toast.makeText(SignupActivity.this, "Successfully created account", Toast.LENGTH_SHORT).show();
-                    Intent iNext = new Intent(SignupActivity.this, MainActivity.class);
+                    Intent iNext = new Intent(SignupActivity.this, loginActivity.class);
                     startActivity(iNext);
                     finish();
                 }

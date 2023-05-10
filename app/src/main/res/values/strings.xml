@@ -6,4 +6,10 @@
     <string name="btnSignup">Create Account</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="terms_of_use">
+        This app is protected by SafeShield authentication. It doesn\'t share any types of important information.
+        This is safe and secure. You can use this app for your personal safety and protection from public disturbence.
+    </string>
+    <string name="app_version">version 1.0</string>
+    <string name="company">SafeShield Inc.</string>
 </resources>
