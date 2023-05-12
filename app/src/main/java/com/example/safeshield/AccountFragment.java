@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -32,7 +33,8 @@ public class AccountFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView accountlogout, accountName, accountPhone, accountEmail, accountUserid, accountAddress;
+    TextView accountName, accountPhone, accountEmail, accountUserid, accountAddress;
+    Button accountlogout, updateAccountBtn;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -81,6 +83,15 @@ public class AccountFragment extends Fragment {
         accountEmail = view.findViewById(R.id.accountEmail);
         accountUserid = view.findViewById(R.id.accountUserid);
         accountAddress = view.findViewById(R.id.accountAddress);
+        updateAccountBtn = view.findViewById(R.id.updateAccountBtn);
+
+        DBHelper db = new DBHelper(getActivity());
+        User list = db.getUser();
+        accountName.setText(list.name);
+        accountPhone.setText(list.phone);
+        accountUserid.setText(list.id);
+        accountEmail.setText(list.email);
+        accountAddress.setText(list.address);
 
         accountlogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +102,22 @@ public class AccountFragment extends Fragment {
                 editor.apply();
                 Intent iNext = new Intent(getActivity(), loginActivity.class);
                 getActivity().startActivity(iNext);
+            }
+        });
+
+        updateAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), UpdateAccountActivity.class);
+                DBHelper db = new DBHelper(getActivity());
+                User list = db.getUser();
+                intent.putExtra("name", list.name);
+                intent.putExtra("phone", list.phone);
+                intent.putExtra("id", list.id);
+                intent.putExtra("email", list.email);
+                intent.putExtra("pass", list.pass);
+                intent.putExtra("address", list.address);
+                startActivity(intent);
             }
         });
     }

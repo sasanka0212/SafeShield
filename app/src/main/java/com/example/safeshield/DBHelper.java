@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create table "+TABLE_NAME+"(newuser Text, phoneNo Text, Username Text, Password password Not null, primary key(Username, phoneNo))");
+        MyDB.execSQL("create table "+TABLE_NAME+"(newuser Text, phoneNo Text, Username Text, Password password Not null, Email Text Unique, Address Text not null, primary key(Username, phoneNo))");
     }
 
     @Override
@@ -38,6 +38,8 @@ public class DBHelper extends SQLiteOpenHelper{
         values.put("phoneNo", phoneNo);
         values.put("Username",username);
         values.put("Password",password);
+        values.put("Email", "None");
+        values.put("Address", "none");
         long result=MyDB.insert("users",null,values);
         if(result==1){
             this.username = username;
@@ -47,18 +49,27 @@ public class DBHelper extends SQLiteOpenHelper{
         else
             return false;
     }
-    public ArrayList<User> getUser(){
+    public User getUser(){
         SQLiteDatabase MyDB = this.getReadableDatabase();
         Cursor rs = MyDB.rawQuery("select * from users", null);
-        rs.moveToFirst();
-        ArrayList<User> arrList = new ArrayList<>();
-        String name = rs.getString(0);
-        String phone = rs.getString(1);
-        String id = rs.getString(2);
-        String pass = rs.getString(3);
-        arrList.add(new User(name, phone, id, pass));
-        return arrList;
+        rs.moveToNext();
+        User user = new User(rs.getString(0),rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+        return user;
     }
+
+    public void updateUser(String key, String name, String phone, String user, String pass, String email, String address){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("Username", name);
+        values.put("phoneNo", phone);
+        values.put("Username", user);
+        values.put("Password", pass);
+        values.put("Email", email);
+        values.put("Address", address);
+        MyDB.update(TABLE_NAME, values, "Username=?", new String[]{key});
+        MyDB.close();
+    }
+
     public boolean checkusername(String username)
     {
         SQLiteDatabase MyDB=this.getWritableDatabase();
@@ -86,32 +97,5 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
         else
             return false;
-    }
-
-    class User{
-        String name, phone, id, pass;
-
-        public User(String name, String phone, String id, String pass) {
-            this.name = name;
-            this.phone = phone;
-            this.id = id;
-            this.pass = pass;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public String getPass() {
-            return pass;
-        }
     }
 }
