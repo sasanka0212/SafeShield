@@ -81,7 +81,8 @@ public class EmegencySOSFragment extends Fragment {
         callSos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), SosListActivity.class);
+                getActivity().startActivity(intent);
             }
         });
     }

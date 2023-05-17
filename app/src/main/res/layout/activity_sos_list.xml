@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HospitalFragment">
+    tools:context=".SosListActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search Here"
-        android:imeOptions="actionSearch"
-        android:padding="8dp"
-        android:drawablePadding="4dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/search_back"
-        android:maxLines="1"
-        android:drawableLeft="@drawable/ic_search"
-        android:id="@+id/hospitalAutoTextView"/>
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Search Here"
+       android:imeOptions="actionSearch"
+       android:padding="8dp"
+       android:drawablePadding="4dp"
+       android:layout_margin="10dp"
+       android:background="@drawable/search_back"
+       android:maxLines="1"
+       android:drawableLeft="@drawable/ic_search"
+       android:id="@+id/sosAutoTextView"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,11 +27,10 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/hospitalRecycler">
+            android:id="@+id/sosRecycler">
 
         </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
-
 
 </LinearLayout>
