@@ -14,10 +14,13 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME="Login.db";
     public static final String TABLE_NAME="Users";
     public static final String TABLE2_NAME="SOS";
+    public static final String TABLE3_NAME="Contacts";
     public static final String TABLE4_NAME="HospitalContact";
     public String username, password;
     public static ArrayList<Contact> eSos;
     public static ArrayList<Hcontact> Hf;
+
+    public ArrayList<ContactFace> cf;
 
     public DBHelper(Context context) {
         super(context,DATABASE_NAME , null, 1);
@@ -28,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper{
         MyDB.execSQL("create table "+TABLE_NAME+"(newuser Text, phoneNo Text, Username Text, Password password Not null, Email Text Unique, Address Text not null, primary key(Username, phoneNo))");
         MyDB.execSQL("create table "+TABLE2_NAME+"( policeStation Text ,District Text, PhoneNo Text Not null,primary key(District,policeStation))");
         MyDB.execSQL("Create table "+TABLE4_NAME+"(hospitalName Text,Place Text Not null,District Text Not null,contactNo Text,primary key(hospitalName,contactNo))");
+        MyDB.execSQL("create table "+TABLE3_NAME+"(name Text not null, phoneNo Text primary key, email text unique)");
     }
 
     @Override
@@ -103,6 +107,45 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
         else
             return false;
+    }
+
+    public boolean insertContactData(String name, String phoneNo, String email){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put("name", name);
+        values.put("phoneNo", phoneNo);
+        values.put("email", email);
+        long result=MyDB.insert("Contacts",null,values);
+        if(result!=0)
+            return true;
+        else
+            return false;
+    }
+
+    public ArrayList<ContactFace> getContactData(){
+        cf = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor rs = db.rawQuery("select * from Contacts", null);
+        while(rs.moveToNext()){
+            cf.add(new ContactFace(rs.getString(0), rs.getString(1), rs.getString(2)));
+        }
+        return cf;
+    }
+
+    public void updateContact(String key, String name, String phone, String email){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("phoneNo", phone);
+        values.put("email", email);
+        MyDB.update(TABLE3_NAME, values, "phoneNo=?", new String[]{key});
+        MyDB.close();
+    }
+
+    public void deleteContact(String phone){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE3_NAME, "phoneNo=?", new String[]{phone});
+        db.close();
     }
 
     public void insertSosData()

@@ -69,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId==R.id.tool_settings){
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        if(itemId==R.id.devInfo){
+            Intent devInfo = new Intent(this, DevInfoActivity.class);
+            startActivity(devInfo);
         }
         else if(itemId==R.id.tool_appinfo){
             Intent appInfo = new Intent(this, AppInfoActivity.class);

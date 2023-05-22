@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 
 public class ContactFace {
 
-    String contactName;
+    String name;
     String phoneNo;
+    String email;
 
-    public ContactFace(String contactName, String phoneNo){
-        this.contactName = contactName;
+    public ContactFace(String name, String phoneNo, String email){
+        this.name = name;
         this.phoneNo = phoneNo;
+        this.email = email;
     }
 }

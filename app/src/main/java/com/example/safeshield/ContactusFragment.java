@@ -1,10 +1,12 @@
 package com.example.safeshield;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,8 @@ import android.widget.Toast;
 public class ContactusFragment extends Fragment {
 
     //views to be used
-    EditText contactEdtEmail, contactEdtProblem, contactEdtFeedback;
-    Button contactBtnSend;
+    EditText contactEdtProblem, contactEdtFeedback;
+    CardView contactBtnSend;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,7 +76,6 @@ public class ContactusFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        contactEdtEmail = view.findViewById(R.id.contactEdtEmail);
         contactEdtProblem = view.findViewById(R.id.contactEdtProblem);
         contactEdtFeedback = view.findViewById(R.id.contactEdtFeedback);
         contactBtnSend = view.findViewById(R.id.contactBtnSend);
@@ -82,16 +83,16 @@ public class ContactusFragment extends Fragment {
         contactBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = contactEdtEmail.getText().toString();
+                String email[] = {"sasankak2002@gmail.com", "snigdhachatterjee100@gmail.com"};
                 String problem = contactEdtProblem.getText().toString();
                 String feedback = contactEdtFeedback.getText().toString();
-                if(email.equals("") && problem.equals("") && feedback.equals("")){
+                if(problem.equals("") && feedback.equals("")){
                     Toast.makeText(getActivity(), "Fill up all details first", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent sendMail = new Intent(Intent.ACTION_SEND);
-                    sendMail.setType("message/rfc822");
-                    sendMail.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                    Intent sendMail = new Intent(Intent.ACTION_SENDTO);
+                    sendMail.setData(Uri.parse("mailto:"));
+                    sendMail.putExtra(Intent.EXTRA_EMAIL, email);
                     sendMail.putExtra(Intent.EXTRA_SUBJECT, feedback);
                     sendMail.putExtra(Intent.EXTRA_TEXT, problem);
                     startActivity(Intent.createChooser(sendMail, "Mail via"));
