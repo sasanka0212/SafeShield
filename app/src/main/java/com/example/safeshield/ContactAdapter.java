@@ -41,6 +41,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    public void filterList(ArrayList<ContactFace> updateList){
+        arrContacts = updateList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, @SuppressLint("RecyclerView") int pos) {
         ContactFace currentPosition = arrContacts.get(pos);

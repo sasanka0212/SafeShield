@@ -10,7 +10,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search Here"
+        android:hint="Search Hospital"
         android:imeOptions="actionSearch"
         android:padding="8dp"
         android:drawablePadding="4dp"

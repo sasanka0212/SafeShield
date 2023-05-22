@@ -9,6 +9,15 @@
     <string name="terms_of_use">
         This app is protected by SafeShield authentication. It doesn\'t share any types of important information.
         This is safe and secure. You can use this app for your personal safety and protection from public disturbence.
+        A normal people can suffer from many types of problem. And we detect one of those problem such as getting emergency services on time to help people from simple to high risky problems.
+	Sometimes we need police security as early as possible. That’s why we add a e-SOS service in our application. In this people can submit their details and after log in successfully they can use our e-SOS services. They only need to enter location where they need help in a location box and after entering they can get nearby police station helpline numbers and they place a call easily. In case they don’t know the name of the location, our app provides a in-app GPS service to detect the current location such a way the user can easily fetch police station details.
+	People also need ambulance services when they get into a trouble. Sometimes they don’t have any option to survive from that situation. Here comes our app which will provide a good enough ambulance service to help the victim as early possible. You just need to enter your current location and you can see private and government hospitals and their ambulance helpline numbers.
+	Sometimes a situation occurred when our phone’s connection to a network is very poor. In that case phone’s call function may or may not work properly, so that we provide an extra e-SMS service in our app. You just need to add favourite phone number accordingly. There is a send button at bottom. If you click on it, our app will send a message to all of your favourite contacts. The send message can be like “I’m in danger, please help me!”.
+	Our app also provides a feedback activity where you can write your problem regarding our app as well as your user feedback and send it via mail. After that we will get your personal feedback.
+	User can easily update their details in the account section by clicking “edit details” option.
+	Our app has also some navigation activities like settings, app info, user info and log out.
+	Our app has only one log in option that is for user. Admin can directly add data, delete data, update data directly through Android studio and apply changes. To get updates of our app you need to update our app timely. In future we will try to provide some extra features like “shake generate SOS”, “Voice search” etc. And also we try to add a customised admin log in option in our app.
+
     </string>
     <string name="app_version">version 1.0</string>
     <string name="company">SafeShield Inc.</string>
