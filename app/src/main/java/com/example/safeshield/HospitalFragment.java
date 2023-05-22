@@ -1,11 +1,13 @@
 package com.example.safeshield;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -30,6 +32,8 @@ public class HospitalFragment extends Fragment {
     private HospitalAdapter adapter;
     private RecyclerView hospitalRecycler;
     private TextView hospitalAutoTextView;
+
+    private CardView hospitalMap;
 
     public HospitalFragment() {
         // Required empty public constructor
@@ -74,6 +78,7 @@ public class HospitalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         hospitalRecycler = view.findViewById(R.id.hospitalRecycler);
         hospitalAutoTextView = view.findViewById(R.id.hospitalAutoTextView);
+        hospitalMap = view.findViewById(R.id.hospitalMap);
 
         hospitalRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         hospitalRecycler.setHasFixedSize(true);
@@ -81,6 +86,16 @@ public class HospitalFragment extends Fragment {
         pushData();
 
         getData();
+
+        hospitalMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MapHospitalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        hospitalAutoTextView.setText(getActivity().getIntent().getStringExtra("district"));
 
         hospitalAutoTextView.addTextChangedListener(new TextWatcher() {
             @Override

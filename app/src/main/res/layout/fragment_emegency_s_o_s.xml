@@ -8,7 +8,7 @@
     android:gravity="center"
     tools:context=".EmegencySOSFragment">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="130dp"
         android:layout_height="160dp"
         android:layout_margin="20dp"
@@ -47,9 +47,9 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="130dp"
         android:layout_height="170dp"
         android:layout_margin="20dp"
@@ -89,6 +89,6 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

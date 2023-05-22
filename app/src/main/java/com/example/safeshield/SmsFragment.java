@@ -6,18 +6,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -118,12 +117,14 @@ public class SmsFragment extends Fragment {
                 for(int i = 0; i< list.size(); i++){
                     numbers.add(list.get(i).phoneNo + separator);
                 }
+                SharedPreferences prefMsg = getActivity().getSharedPreferences("location", MODE_PRIVATE);
+                String add = prefMsg.getString("loc", "");
                 pref = getActivity().getSharedPreferences("login",MODE_PRIVATE);
                 String msg = pref.getString("msg", "");
                 try {
                     Uri uri = Uri.parse("smsto:" + numbers);
                     Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
-                    smsIntent.putExtra("sms_body", msg);
+                    smsIntent.putExtra("sms_body", msg + ". " + add);
                     startActivity(smsIntent);
                 }catch (Exception e) {
                     Toast.makeText(getActivity(),

@@ -21,4 +21,6 @@
     </string>
     <string name="app_version">version 1.0</string>
     <string name="company">SafeShield Inc.</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_map_hospital">MapHospitalActivity</string>
 </resources>

@@ -1,13 +1,16 @@
 package com.example.safeshield;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -18,6 +21,7 @@ public class SosListActivity extends AppCompatActivity {
     private SosAdapter adapter;
     private RecyclerView sosRecycler;
     private EditText sosAutoTextView;
+    private CardView sosMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,8 @@ public class SosListActivity extends AppCompatActivity {
 
         sosRecycler = findViewById(R.id.sosRecycler);
         sosAutoTextView = findViewById(R.id.sosAutoTextView);
+        sosMap = findViewById(R.id.sosMap);
+
         sosRecycler.setLayoutManager(new LinearLayoutManager(this));
         sosRecycler.setHasFixedSize(true);
 
@@ -33,10 +39,11 @@ public class SosListActivity extends AppCompatActivity {
 
         getData();
 
+        sosAutoTextView.setText(getIntent().getStringExtra("address"));
+
         sosAutoTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -47,6 +54,14 @@ public class SosListActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
+            }
+        });
+
+        sosMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SosListActivity.this, MapActivity.class);
+                startActivity(intent);
             }
         });
     }
