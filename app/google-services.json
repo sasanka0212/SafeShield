@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1045715735612",
+    "project_id": "safeshield-9536c",
+    "storage_bucket": "safeshield-9536c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045715735612:android:f3c9ff3dd5d80c830ddf39",
+        "android_client_info": {
+          "package_name": "com.example.safeshield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045715735612-ki7940atuarhvmuo0dmeeq6pa2ki1a7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.safeshield",
+            "certificate_hash": "1b33b422c61e61b91f019bda1b82848cdb8753bf"
+          }
+        },
+        {
+          "client_id": "1045715735612-i5qsnbd08rp8nujt78timj3dv2rloup5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcW5UMzL8H_5m4Qft8gTEuOllbcWuFFbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045715735612-i5qsnbd08rp8nujt78timj3dv2rloup5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

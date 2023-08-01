@@ -3,9 +3,7 @@ package com.example.safeshield;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,7 +16,6 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -30,7 +27,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.safeshield.databinding.ActivityMapHospitalBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.karumi.dexter.Dexter;
@@ -42,21 +38,24 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
 
-public class MapHospitalActivity extends AppCompatActivity {
+public class MapHospitalActivity extends AppCompatActivity{
 
-    GoogleMap gMap;
+    private static final long MIN_TIME = 1000;
+    private static final long MIN_DIST = 5;
+    GoogleMap mMap;
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient fusedLocationProviderClient;
     ArrayList<Address>  list;
     Geocoder gcoder;
     SharedPreferences pref;
+    LocationManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_hospital);
 
-        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
 
         if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
             buildAlertMessageNoGps();
@@ -115,6 +114,7 @@ public class MapHospitalActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
@@ -135,7 +135,9 @@ public class MapHospitalActivity extends AppCompatActivity {
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,16));
                             pref = getSharedPreferences("location", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
-                            editor.putString("loc",list.get(0).getAddressLine(0));
+                            editor.putString("lat",list.get(0).getAddressLine(0));
+                            editor.putString("lat", String.valueOf(location.getLatitude()));
+                            editor.putString("lng", String.valueOf(location.getLongitude()));
                             editor.apply();
 
                             /*googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {

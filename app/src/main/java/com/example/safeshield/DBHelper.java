@@ -31,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper{
         MyDB.execSQL("create table "+TABLE_NAME+"(newuser Text, phoneNo Text, Username Text, Password password Not null, Email Text Unique, Address Text not null, primary key(Username, phoneNo))");
         MyDB.execSQL("create table "+TABLE2_NAME+"( policeStation Text ,District Text, PhoneNo Text Not null,primary key(District,policeStation))");
         MyDB.execSQL("Create table "+TABLE4_NAME+"(hospitalName Text,Place Text Not null,District Text Not null,contactNo Text,primary key(hospitalName,contactNo))");
-        MyDB.execSQL("create table "+TABLE3_NAME+"(name Text not null, phoneNo Text primary key, email text unique)");
+        MyDB.execSQL("create table "+TABLE3_NAME+"(name Text not null, phoneNo Text primary key, email text)");
     }
 
     @Override

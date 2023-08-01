@@ -41,6 +41,7 @@ public class loginActivity extends AppCompatActivity {
                     editor.putBoolean("flag", true);
                     editor.apply();
                     Intent intentDirection = new Intent(loginActivity.this, DirectionActivity.class);
+                    intentDirection.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intentDirection);
                     finish();
                 }
