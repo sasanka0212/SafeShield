@@ -82,7 +82,7 @@ public class ContactusFragment extends Fragment {
         contactBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email[] = {"sasankak2002@gmail.com", "snigdhachatterjee100@gmail.com"};
+                String email[] = {"sasankak2002@gmail.com", "snigdhachatterjee100@gmail.com", "surraktim@gmail.com"};
                 String problem = contactEdtProblem.getText().toString();
                 String feedback = contactEdtFeedback.getText().toString();
                 if(problem.equals("") && feedback.equals("")){

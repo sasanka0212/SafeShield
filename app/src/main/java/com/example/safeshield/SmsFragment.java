@@ -121,10 +121,13 @@ public class SmsFragment extends Fragment {
                 String add = prefMsg.getString("loc", "");
                 pref = getActivity().getSharedPreferences("login",MODE_PRIVATE);
                 String msg = pref.getString("msg", "");
+                String lat = prefMsg.getString("lat", "");
+                String lng = prefMsg.getString("lng", "");
+                String gmap = "https://maps.google.com/?q=" + lat + "," + lng ;
                 try {
                     Uri uri = Uri.parse("smsto:" + numbers);
                     Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
-                    smsIntent.putExtra("sms_body", msg + ". " + add);
+                    smsIntent.putExtra("sms_body", msg + ". " + add + " " + gmap);
                     startActivity(smsIntent);
                 }catch (Exception e) {
                     Toast.makeText(getActivity(),

@@ -50,10 +50,10 @@ public class SmsAdapter extends RecyclerView.Adapter<SmsAdapter.SmsViewAdapter> 
             public void onClick(View view) {
                 SharedPreferences prefMsg = context.getSharedPreferences("location", MODE_PRIVATE);
                 String add = prefMsg.getString("loc", "");
-                pref = context.getSharedPreferences("location", MODE_PRIVATE);
+                pref = context.getSharedPreferences("login", MODE_PRIVATE);
                 String msg = pref.getString("msg", "");
-                String lat = pref.getString("lat", "");
-                String lng = pref.getString("lng", "");
+                String lat = prefMsg.getString("lat", "");
+                String lng = prefMsg.getString("lng", "");
                 String gmap = "https://maps.google.com/?q=" + lat + "," + lng ;
                 Uri uri = Uri.parse("smsto:" + currentItem.phoneNo);
                 Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
